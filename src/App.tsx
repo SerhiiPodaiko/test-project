@@ -6,11 +6,8 @@ import News from "./pages/news/News"
 import Profile from "./pages/profile/Profile"
 import Login from "./pages/auth/Login"
 import NotFound from "./pages/404/NotFound"
-import {useAppSelector} from "./hooks/redux/useRedux"
 
 const App = () => {
-    const {posts} = useAppSelector(state => state.posts)
-
     return (
         <Routes>
             <Route path="/" element={<Layout/>}>

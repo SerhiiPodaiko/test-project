@@ -1,11 +1,9 @@
 import Box from "@mui/material/Box"
 import Container from "@mui/material/Container"
-import IconButton from "@mui/material/IconButton"
-import PhotoCamera from "@mui/icons-material/PhotoCamera"
 import Paper from "@mui/material/Paper"
 import {useAppSelector} from "../../hooks/redux/useRedux"
 import {useTranslation} from "react-i18next"
-import {ReactComponent as ProfileBg} from "../../assets/profile.svg";
+import {ReactComponent as ProfileBg} from "../../assets/profile.svg"
 
 const Profile = () => {
     const {user, password} = useAppSelector(state => state.auth)
