@@ -14,8 +14,6 @@ const News = () => {
     const {loading, error, onLoadMore, postsLoad} = useNewsContainer()
     const {t} = useTranslation()
 
-    console.log("News postsLoad", postsLoad)
-
     return (
         <Box component="div">
             <Typography

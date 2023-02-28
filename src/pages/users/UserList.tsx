@@ -23,7 +23,8 @@ const UserList = () => {
                             key={user.id}
                             viewMode={viewMode}
                             user={user}/>)}
-                </Grid>}
+                </Grid>
+            }
         </Box>
     )
 }

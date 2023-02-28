@@ -46,7 +46,10 @@ const useAuthContainer = () => {
                 navigate(from?.pathname)
             }, 3000)
         } else {
-            toast(t("toast.error"))
+            toast(t("toast.error"), {
+                position: "top-center",
+                autoClose: 1500
+            })
         }
     }
 

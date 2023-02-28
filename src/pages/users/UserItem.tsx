@@ -3,7 +3,7 @@ import Paper from "@mui/material/Paper"
 import Typography from "@mui/material/Typography"
 import {User} from "../../store/slices/users/userType"
 
-const UserItem = ({user, viewMode}: { user: User, viewMode: string }) => {
+const UserItem = ({ user, viewMode }: { user: User, viewMode: string }) => {
     return (
         <>
             { viewMode === "row" ?

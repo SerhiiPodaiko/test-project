@@ -25,7 +25,7 @@ const Language = () => {
         <Box
             component="select"
             onChange={changeLanguage}
-            defaultValue={JSON.stringify(localStorage.getItem("i18nextLng"))}
+            defaultValue={localStorage.getItem("i18nextLng") || ""}
             sx={styleSelect}>
 
             <Box component="option" defaultValue="en">
