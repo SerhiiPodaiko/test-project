@@ -1,5 +1,6 @@
 import Grid from "@mui/material/Grid"
 import Box from "@mui/material/Box"
+import Container from "@mui/material/Container"
 import Spinner from "../../ui/spinner/Spinner"
 import AlertMessage from "../../ui/alert/Alert"
 import useUsersContainer from "../../hooks/users/useUsersContainer"
@@ -10,20 +11,23 @@ const UserList = () => {
 
     return (
         <Box component="div">
-           <Box component="div" sx={{ textAlign: "right" }}>
-               {renderViewMode}
-           </Box>
+
+            <Container sx={{textAlign: "right"}}>
+                {renderViewMode}
+            </Container>
 
             {error && <AlertMessage error={error} severity="error"/>}
 
             {loading ? <Spinner/> :
-                <Grid container spacing={2}>
-                    {users?.map(user =>
-                        <UserItem
-                            key={user.id}
-                            viewMode={viewMode}
-                            user={user}/>)}
-                </Grid>
+                <Container>
+                    <Grid container spacing={2}>
+                        {users?.map(user =>
+                            <UserItem
+                                key={user.id}
+                                viewMode={viewMode}
+                                user={user}/>)}
+                    </Grid>
+                </Container>
             }
         </Box>
     )

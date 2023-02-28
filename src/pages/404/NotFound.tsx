@@ -15,16 +15,27 @@ const NotFound = () => {
 
     return (
         <Box sx={{
-            padding: "100px 15px",
+            padding: "10rem 1.5rem",
             textAlign: "center",
             position: "relative"
         }}>
-            <Button variant="outlined" size="medium"
-                        sx={{ position: "absolute", top: "5px", left: "30px" }}
+            <Button
+                variant="outlined"
+                size="medium"
+                sx={{
+                    position: "absolute",
+                    top: "0.5rem",
+                    left: "3rem"
+                }}
                     onClick={() => navigate("/")} >
                 Back to home
             </Button>
-            <Box component="img" sx={{maxWidth: 500, width: "100%", height: "auto"}}
+            <Box
+                component="img"
+                sx={{maxWidth: "50rem",
+                    width: "100%",
+                    height: "auto"
+                }}
                 src={NotFoundImg}
                 alt="not-found"/>
         </Box>

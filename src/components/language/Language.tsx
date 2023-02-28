@@ -9,10 +9,10 @@ const Language = () => {
     }
 
     const styleSelect = {
-        marginRight: "50px",
-        padding: "10px",
-        borderRadius: "6px",
-        border: "1px solid #fff",
+        marginRight: "5rem",
+        padding: "1rem",
+        borderRadius: "0.6rem",
+        border: "0.1rem solid #fff",
         color: "#fff",
         outline: "none",
         background: "transparent",

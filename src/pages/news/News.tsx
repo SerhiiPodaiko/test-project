@@ -26,7 +26,7 @@ const News = () => {
                 {error && <AlertMessage error={error} severity="error" />}
                 { loading ? <Spinner /> : (
                     <TransitionGroup>
-                        {postsLoad?.map(((post: any) => (
+                        {postsLoad && postsLoad.map(((post: any) => (
                             <Collapse key={post.id}>
                                 <NewsItem post={post}/>
                             </Collapse>

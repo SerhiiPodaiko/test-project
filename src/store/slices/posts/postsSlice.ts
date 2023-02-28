@@ -55,7 +55,7 @@ const usersSlice = createSlice({
                 state.error = null
             })
         builder
-            .addCase(fetchGetAllPosts.fulfilled, (state, action:PayloadAction<any>) => {
+            .addCase(fetchGetAllPosts.fulfilled, (state, action:PayloadAction<Post[]>) => {
                 state.posts = action.payload
                 state.loading = false
             })
@@ -72,7 +72,7 @@ const usersSlice = createSlice({
                 state.error = null
             })
         builder
-            .addCase(fetchDeletePost.fulfilled, (state, action: PayloadAction<any>) => {
+            .addCase(fetchDeletePost.fulfilled, (state, action: PayloadAction<number>) => {
                 state.posts = state.posts.filter((user) => user.id !== action.payload)
             })
         builder

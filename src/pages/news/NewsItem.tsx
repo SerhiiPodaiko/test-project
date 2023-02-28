@@ -26,19 +26,19 @@ const NewsItem = ({post}: { post: Post }) => {
     return (
         <ListItem>
             <Paper sx={{
-                padding: "20px",
+                padding: "2rem",
                 width: "100%",
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                marginBottom: "15px"
+                marginBottom: "1.5rem"
             }}
             >
                 <Box component="div" sx={{
                     display: "flex",
                     flexDirection: "column",
                     flex: "90%",
-                    paddingRight: "15px"
+                    paddingRight: "1.5rem"
                 }}>
                     <Typography variant="h6" component="strong">
                         {post.title}

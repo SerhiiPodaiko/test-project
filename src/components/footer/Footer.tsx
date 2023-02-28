@@ -7,10 +7,9 @@ const Footer = () => {
 
     return (
         <Box component="footer" sx={{
-            fontSize: "18px",
             color: "#fff",
             textAlign: "center",
-            padding: "20px",
+            padding: "2rem",
             background: "#1976d3"
         }}>
             <Typography variant="body1" component="span">

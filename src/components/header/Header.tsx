@@ -29,13 +29,13 @@ const Header = ({toggleTheme, theme}: {toggleTheme: () => void, theme: string}) 
     }
 
     const themeView = theme === "dark" ?
-        <NightlightOutlinedIcon onClick={toggleTheme} /> :
-        <ModeNightRoundedIcon onClick={toggleTheme} />
+        <NightlightOutlinedIcon fontSize="large" onClick={toggleTheme} /> :
+        <ModeNightRoundedIcon fontSize="large" onClick={toggleTheme} />
 
     return (
         <Box component="header"
              sx={{
-                 padding: "20px 0",
+                 padding: "2rem 0",
                  background: "#1976d3"
              }}
         >
@@ -53,8 +53,8 @@ const Header = ({toggleTheme, theme}: {toggleTheme: () => void, theme: string}) 
                     sx={{
                         display: "flex",
                         alignItems: "center",
-                        gap: "10px",
-                        fontSize: "18px"
+                        gap: "1rem",
+                        fontSize: "1.8rem"
                     }}  >
 
                     {themeView}
@@ -69,11 +69,14 @@ const Header = ({toggleTheme, theme}: {toggleTheme: () => void, theme: string}) 
                     )}
 
                     {location?.pathname !== "/login" && (
-                        <PersonOutlineOutlinedIcon onClick={() => navigate("/profile")}/>
+                        <PersonOutlineOutlinedIcon
+                            fontSize="large"
+                            onClick={() => navigate("/profile")}/>
                     )}
 
                     { isAuth &&
                         <LogoutIcon
+                            fontSize="large"
                             onClick={logOutUser}
                             titleAccess="Logout"/> }
                 </Box>

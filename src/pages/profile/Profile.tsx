@@ -21,12 +21,12 @@ const Profile = () => {
                 position: "relative"
             }}>
                 <Paper sx={ {
-                    borderRadius: "10px",
-                    padding: "15px",
+                    borderRadius: "1rem",
+                    padding: "1.5rem",
                     display: "flex",
                     flexDirection: "column",
-                    gap: "15px",
-                    fontSize: "18px",
+                    gap: "1.5rem",
+                    fontSize: "1.8rem",
                     color: "#333"
                 }}>
                     <Box component="span">
@@ -38,7 +38,7 @@ const Profile = () => {
                 </Paper>
 
                 <Box component="div" sx={{
-                    maxWidth: "500px",
+                    maxWidth: "50rem",
                     width: "100%",
                     height: "auto"
                 }}>

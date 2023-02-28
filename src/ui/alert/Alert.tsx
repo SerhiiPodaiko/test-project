@@ -18,7 +18,7 @@ const AlertMessage:FC<AlertProps> = ({ severity, error }) => {
             justifyContent: "center",
             alignItems: "start"
         }}>
-            <Alert severity={severity} sx={{maxWidth: "300px"}}>
+            <Alert severity={severity} sx={{maxWidth: "30rem"}}>
                 {error}
             </Alert>
         </Box>

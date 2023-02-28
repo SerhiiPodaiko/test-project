@@ -16,7 +16,7 @@ const Login = () => {
         <Box
             component="div"
             sx={{
-                padding: "50px 0",
+                padding: "5rem 0",
                 display: "flex",
                 width: "100%",
                 justifyContent: "center",
@@ -24,7 +24,7 @@ const Login = () => {
             }}>
             <Box component="div" sx={{
                 position: "absolute",
-                maxWidth: "500px",
+                maxWidth: "50rem",
                 width: "100%",
                 height: "auto"
             }}>
@@ -33,11 +33,11 @@ const Login = () => {
             <Box
                 component="form"
                 sx={{
-                    maxWidth: "400px",
+                    maxWidth: "40rem",
                     width: "100%",
                     display: "flex",
                     flexDirection: "column",
-                    gap: "25px" }}
+                    gap: "2.5rem" }}
                 noValidate
                 autoComplete="off">
 

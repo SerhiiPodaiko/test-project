@@ -9,32 +9,32 @@ const UserItem = ({ user, viewMode }: { user: User, viewMode: string }) => {
             { viewMode === "row" ?
                 <Grid item xs={12} sm={6} md={4} lg={3}>
                     <Paper sx={{
-                        padding: "20px",
+                        padding: "2rem",
                         display: "flex",
                         flexDirection: "column",
-                        gap: "10px"
+                        gap: "1rem"
                     }}
                     >
                         <Typography variant="h6" component="strong">
                             {user.name}
                         </Typography>
-                        <Typography variant="body2" component="span" sx={{marginTop: "10px"}}>
-                            {user.email}
+                        <Typography variant="body2" component="span" sx={{marginTop: "1rem"}}>
+                            E-mail: {user.email}
                         </Typography>
                         <Typography variant="body2" component="span">
-                            {user.phone}
+                            Phone: {user.phone}
                         </Typography>
                         <Typography variant="body2" component="span">
-                            {user.website}
+                            Website: {user.website}
                         </Typography>
                     </Paper>
                 </Grid> :
 
                 <Grid item xs={12}>
                     <Paper sx={{
-                        padding: "15px 20px",
+                        padding: "1.5rem 2rem",
                         display: "flex",
-                        alignItems: "center",
+                        flexDirection: "column",
                         flex: "1 1 auto"
                     }}
                     >
