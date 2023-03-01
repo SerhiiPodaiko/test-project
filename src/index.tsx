@@ -1,6 +1,5 @@
 import React, {Suspense} from "react"
 import ReactDOM from "react-dom/client"
-import {BrowserRouter as Router} from "react-router-dom"
 import {Provider} from "react-redux"
 import {PersistGate} from "redux-persist/integration/react"
 import {ToastContainer} from "react-toastify"
@@ -18,13 +17,11 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <Provider store={store}>
-        <Router>
-            <PersistGate persistor={persistor} loading={null}>
-               <Suspense fallback={<Spinner />}>
-                   <App/>
-               </Suspense>
-            </PersistGate>
-            <ToastContainer/>
-        </Router>
+        <PersistGate persistor={persistor} loading={null}>
+            <Suspense fallback={<Spinner />}>
+                <App/>
+            </Suspense>
+        </PersistGate>
+        <ToastContainer/>
     </Provider>
 )

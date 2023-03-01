@@ -11,7 +11,6 @@ const UserList = () => {
 
     return (
         <Box component="div">
-
             <Container sx={{textAlign: "right"}}>
                 {renderViewMode}
             </Container>

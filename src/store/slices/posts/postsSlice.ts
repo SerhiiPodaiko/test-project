@@ -78,6 +78,7 @@ const usersSlice = createSlice({
         builder
             .addCase(fetchDeletePost.rejected, (state, action: PayloadAction<any>) => {
                 state.error = action.payload
+                state.loading = false
             })
     }
 })
