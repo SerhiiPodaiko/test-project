@@ -1,27 +1,27 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit"
-import {AuthType} from "./authType"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { AuthType } from "./authType"
 
 const initialState: AuthType = {
-    isAuth: null,
-    user: null,
-    password: null
+  isAuth: null,
+  user: null,
+  password: null,
 }
 
 const authSlice = createSlice({
-    name: "auth",
-    initialState,
-    reducers: {
-        setAuth: (state, action: PayloadAction<any>) => {
-            state.isAuth = action.payload.isAuth
-            state.user = action.payload.user
-            state.password = action.payload.password
-        },
-        logOut: (state) => {
-            state.isAuth = null
-            state.user = null
-            state.password = null
-        }
+  name: "auth",
+  initialState,
+  reducers: {
+    setAuth: (state, action: PayloadAction<any>) => {
+      state.isAuth = action.payload.isAuth
+      state.user = action.payload.user
+      state.password = action.payload.password
     },
+    logOut: (state) => {
+      state.isAuth = null
+      state.user = null
+      state.password = null
+    },
+  },
 })
 
-export const {actions: authActions, reducer: authReducer} = authSlice
+export const { actions: authActions, reducer: authReducer } = authSlice

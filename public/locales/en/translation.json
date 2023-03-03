@@ -18,7 +18,7 @@
   },
   "toast": {
     "success": "Signing in, please wait..",
-    "error": "Incorrect data, enter again!",
+    "error": "Username or password entered incorrectly",
     "delete": "Deleted post",
     "logout": "You are logged out!"
   },

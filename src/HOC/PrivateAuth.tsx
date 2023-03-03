@@ -1,20 +1,20 @@
-import {FC} from "react"
-import {Navigate, useLocation} from "react-router-dom"
-import {useAppSelector} from "../hooks/redux/useRedux"
+import { FC } from "react"
+import { Navigate, useLocation } from "react-router-dom"
+import { useAppSelector } from "../hooks/redux/useRedux"
 
 type PrivateAuthProps = {
-    children: any
+  children: any
 }
 
-const PrivateAuth:FC<PrivateAuthProps> = ({children}) => {
-    const location = useLocation()
-    const {isAuth} = useAppSelector(state => state.auth)
+const PrivateAuth: FC<PrivateAuthProps> = ({ children }) => {
+  const location = useLocation()
+  const { isAuth } = useAppSelector((state) => state.auth)
 
-    if(!isAuth) {
-        return <Navigate to="/login" state={{from: location}}/>
-    }
+  if (!isAuth) {
+    return <Navigate to="/login" state={{ from: location }} />
+  }
 
-    return children
+  return children
 }
 
 export default PrivateAuth

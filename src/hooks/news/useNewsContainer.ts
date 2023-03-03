@@ -1,33 +1,38 @@
-import {useEffect, useState} from "react"
-import {useAppDispatch, useAppSelector} from "../redux/useRedux"
-import {fetchGetAllPosts} from "../../store/slices/posts/postsSlice"
+import { useEffect, useState } from "react"
+import { useAppDispatch, useAppSelector } from "../redux/useRedux"
+import { fetchGetAllNews, newsActions } from "../../store/slices/news/newsSlice"
 
 const useNewsContainer = () => {
-    const {posts, loading, error} = useAppSelector(state => state.posts)
-    const [currentPage, setCurrentPage] = useState<number>(5)
+  const { news, loading, error } = useAppSelector((state) => state.news)
+  const [currentPage, setCurrentPage] = useState<number>(1)
+  const [fetching, setFetching] = useState<boolean>(false)
 
-    const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch()
 
-    const postsLoad = posts.slice(0, currentPage)
+  console.log("NEWS page", news)
 
-    // Load posts
-    const onLoadMore = () => {
-        setCurrentPage(prev => prev + 5)
+  // Load posts
+  const onLoadMore = (): void => {
+    setCurrentPage((prev) => prev + 1)
+  }
 
-        return postsLoad.slice(0, currentPage)
+  // Set news
+  useEffect(() => {
+    dispatch(fetchGetAllNews(currentPage))
+  }, [currentPage])
+
+  useEffect(() => {
+    if (!news.length && currentPage === 1) {
+      dispatch(fetchGetAllNews(currentPage))
     }
+  }, [])
 
-    // Set posts
-    useEffect(() => {
-        dispatch(fetchGetAllPosts())
-    }, [])
-
-    return {
-        loading,
-        error,
-        onLoadMore,
-        postsLoad
-    }
+  return {
+    news,
+    loading,
+    error,
+    onLoadMore,
+  }
 }
 
 export default useNewsContainer
