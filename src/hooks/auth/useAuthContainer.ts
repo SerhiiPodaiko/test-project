@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import { toast } from "react-toastify"
@@ -26,7 +26,9 @@ const useAuthContainer = () => {
 
   const { REACT_APP_USER_ROLE_ADMIN, REACT_APP_USER_PASSWORD } = process.env
 
-  const onLogin = () => {
+  const onLogin = (event: any) => {
+    event.preventDefault()
+
     if (
       REACT_APP_USER_ROLE_ADMIN === userName &&
       REACT_APP_USER_PASSWORD === userPassword
@@ -56,12 +58,19 @@ const useAuthContainer = () => {
     }
   }
 
+  const onKeyHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.keyCode === 13) {
+      onLogin(event)
+    }
+  }
+
   return {
     userName,
     userPassword,
     setUserName,
     setUserPassword,
     onLogin,
+    onKeyHandler,
   }
 }
 

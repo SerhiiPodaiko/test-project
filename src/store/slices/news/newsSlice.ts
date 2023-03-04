@@ -2,8 +2,11 @@ import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit"
 import { api } from "../../../utils/axios"
 import { NewsType } from "./newsType"
 
-export const fetchGetAllNews = createAsyncThunk<NewsType[], number, { rejectValue: string }>
-("news/fetchGetAllNews", async function (currentPage, { rejectWithValue }) {
+export const fetchGetAllNews = createAsyncThunk<
+  NewsType[],
+  number,
+  { rejectValue: string }
+>("news/fetchGetAllNews", async function (currentPage, { rejectWithValue }) {
   try {
     const response = await api.get(
       `${process.env.REACT_APP_BASE_URL}/posts?_limit=10&_page=${currentPage}`,
@@ -19,8 +22,11 @@ export const fetchGetAllNews = createAsyncThunk<NewsType[], number, { rejectValu
   }
 })
 
-export const fetchDeleteNews = createAsyncThunk<number, number, { rejectValue: string }>
-("news/fetchDeleteNews", async function (id, { rejectWithValue }) {
+export const fetchDeleteNews = createAsyncThunk<
+  number,
+  number,
+  { rejectValue: string }
+>("news/fetchDeleteNews", async function (id, { rejectWithValue }) {
   const response = await api.delete(
     `${process.env.REACT_APP_BASE_URL}/posts/${id}`,
   )
@@ -36,14 +42,12 @@ type UsersState = {
   news: NewsType[]
   loading: boolean
   error: null | string
-  page: number
 }
 
 const initialState: UsersState = {
   news: [],
   loading: false,
   error: null,
-  page: JSON.parse(localStorage.getItem("page") || "1"),
 }
 
 const newsSlice = createSlice({
@@ -56,7 +60,6 @@ const newsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchGetAllNews.pending, (state) => {
-      // if (JSON.parse(localStorage.getItem("")))
       state.loading = true
       state.error = null
     })

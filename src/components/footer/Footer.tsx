@@ -15,7 +15,7 @@ const Footer = () => {
         background: "#1976d3",
       }}
     >
-      <Typography variant="body1" component="span">
+      <Typography variant="h5" component="span">
         {t("footer.copy")}
       </Typography>
     </Box>

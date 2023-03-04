@@ -8,6 +8,7 @@ import Container from "@mui/material/Container"
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined"
 import NightlightOutlinedIcon from "@mui/icons-material/NightlightOutlined"
 import ModeNightRoundedIcon from "@mui/icons-material/ModeNightRounded"
+import { useMediaQuery } from "@mui/material"
 import LogoutIcon from "@mui/icons-material/Logout"
 import Language from "../language/Language"
 
@@ -32,6 +33,7 @@ const Header = ({
       autoClose: 2000,
       theme: "light",
     })
+    navigate("/")
   }
 
   const themeView =
@@ -40,6 +42,8 @@ const Header = ({
     ) : (
       <ModeNightRoundedIcon fontSize="large" onClick={toggleTheme} />
     )
+
+  const query = useMediaQuery("(max-width: 500px)")
 
   return (
     <Box
@@ -52,6 +56,7 @@ const Header = ({
       <Container
         sx={{
           display: "flex",
+          flexDirection: `${query && "column"}`,
           alignItems: "center",
           justifyContent: "space-between",
         }}
@@ -62,8 +67,11 @@ const Header = ({
         <Box
           component="div"
           sx={{
+            width: `${query && "100%"}`,
+            marginTop: `${query && "1.5rem"}`,
             display: "flex",
             alignItems: "center",
+            justifyContent: `${query && "space-between"}`,
             gap: "1rem",
             fontSize: "1.8rem",
           }}
@@ -71,7 +79,7 @@ const Header = ({
           {themeView}
           <Language />
 
-          {location?.pathname === "/" && (
+          {location?.pathname !== "/login" && (
             <>
               <Link to="news">{t("header.news")}</Link>
             </>

@@ -1,6 +1,7 @@
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useState, useRef, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import Box from "@mui/material/Box"
+import FormControl from "@mui/material/FormControl"
 import TextField from "@mui/material/TextField"
 import InputAdornment from "@mui/material/InputAdornment"
 import { ReactComponent as LoginBg } from "../../assets/authentication.svg"
@@ -8,12 +9,21 @@ import useAuthContainer from "../../hooks/auth/useAuthContainer"
 import Btn from "../../ui/button/Btn"
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined"
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined"
+import { useAppSelector } from "../../hooks/redux/useRedux"
 
 const Login = () => {
   const [viewPassword, setViewPassword] = useState<boolean>(false)
-  const { userName, userPassword, setUserName, setUserPassword, onLogin } =
-    useAuthContainer()
+  const {
+    userName,
+    userPassword,
+    setUserName,
+    setUserPassword,
+    onLogin,
+    onKeyHandler,
+  } = useAuthContainer()
 
+  const { isAuth } = useAppSelector((state) => state.auth)
+  const userNameRef = useRef<HTMLInputElement | null>(null)
   const { t } = useTranslation()
 
   const renderIconPassword = viewPassword ? (
@@ -28,6 +38,8 @@ const Login = () => {
     />
   )
 
+  useEffect(() => userNameRef.current?.focus(), [])
+
   return (
     <Box
       component="div"
@@ -36,6 +48,7 @@ const Login = () => {
         display: "flex",
         width: "100%",
         justifyContent: "center",
+        alignItems: "center",
         position: "relative",
       }}
     >
@@ -50,7 +63,7 @@ const Login = () => {
       >
         <LoginBg />
       </Box>
-      <Box
+      <FormControl
         component="form"
         sx={{
           maxWidth: "40rem",
@@ -59,26 +72,28 @@ const Login = () => {
           flexDirection: "column",
           gap: "2.5rem",
         }}
-        noValidate
         autoComplete="off"
       >
         <TextField
+          onKeyDown={onKeyHandler}
+          autoComplete="off"
+          inputRef={userNameRef}
           value={userName}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setUserName(e.target.value)
           }
-          id="standard-basic"
           label={t("auth.username")}
           variant="standard"
         />
 
         <TextField
+          onKeyDown={onKeyHandler}
+          autoComplete="off"
           type={viewPassword ? "text" : "password"}
           value={userPassword}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setUserPassword(e.target.value)
           }
-          id="standard-basic"
           label={t("auth.password")}
           variant="standard"
           InputProps={{
@@ -90,10 +105,15 @@ const Login = () => {
           }}
         />
 
-        <Btn type="contained" onClick={onLogin} sx={{ alignSelf: "start" }}>
+        <Btn
+          disabled={!!isAuth}
+          type="contained"
+          onClick={onLogin}
+          sx={{ alignSelf: "start" }}
+        >
           {t("button.login")}
         </Btn>
-      </Box>
+      </FormControl>
     </Box>
   )
 }

@@ -1,7 +1,7 @@
 @import "reset.css";
 
 html {
-  font-size: 62.5%; /* 16px x 62.5 = 10px = 1rem */
+  font-size: 62.5% !important; /* 16px x 62.5 = 10px = 1rem */
 }
 
 body {

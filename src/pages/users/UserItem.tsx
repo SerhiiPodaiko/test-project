@@ -16,20 +16,20 @@ const UserItem = ({ user, viewMode }: { user: User; viewMode: string }) => {
               gap: "1rem",
             }}
           >
-            <Typography variant="h6" component="strong">
+            <Typography variant="h5" component="strong">
               {user.name}
             </Typography>
             <Typography
-              variant="body2"
+              variant="h6"
               component="span"
               sx={{ marginTop: "1rem" }}
             >
               E-mail: {user.email}
             </Typography>
-            <Typography variant="body2" component="span">
+            <Typography variant="h6" component="span">
               Phone: {user.phone}
             </Typography>
-            <Typography variant="body2" component="span">
+            <Typography variant="h6" component="span">
               Website: {user.website}
             </Typography>
           </Paper>
@@ -44,16 +44,16 @@ const UserItem = ({ user, viewMode }: { user: User; viewMode: string }) => {
               flex: "1 1 auto",
             }}
           >
-            <Typography variant="h6" component="strong">
+            <Typography variant="h5" component="strong">
               {user.name}
             </Typography>
-            <Typography variant="body2" component="span">
+            <Typography variant="h6" component="span">
               {user.email}
             </Typography>
-            <Typography variant="body2" component="span">
+            <Typography variant="h6" component="span">
               {user.phone}
             </Typography>
-            <Typography variant="body2" component="span">
+            <Typography variant="h6" component="span">
               {user.website}
             </Typography>
           </Paper>
