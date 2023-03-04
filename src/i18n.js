@@ -9,7 +9,6 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: localStorage.getItem("i18nextLng") || "en",
-    resources: require("/test-project/locales/en/translation.json"),
     debug: true,
     detection: {
       order: ["queryString", "cookie"],
