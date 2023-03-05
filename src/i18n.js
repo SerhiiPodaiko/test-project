@@ -18,7 +18,18 @@ i18n
       escapeValue: false,
     },
     backend: {
-      loadPath: `https://SerhiiPodaiko.github.io/test-project/locales/{{lng}}/translation.json`,
+      loadPath: () => {
+        console.log(
+          "1 - https://SerhiiPodaiko.github.io/test-project/locales/{{lng}}/translation.json",
+        )
+        console.log(
+          "2 - https://SerhiiPodaiko.github.io/test-project/{{lng}}/translation.json",
+        )
+        console.log("3 - /locales/{{lng}}/translation.json")
+
+        return `https://SerhiiPodaiko.github.io/test-project/locales/{{lng}}/translation.json`
+      },
+      crossDomain: true,
     },
   })
 
