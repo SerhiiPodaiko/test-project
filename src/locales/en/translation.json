@@ -1,0 +1,29 @@
+{
+  "header": {
+    "news": "News",
+    "users": "Users",
+    "login": "Login"
+  },
+  "footer": {
+    "copy": "Copy - 2023"
+  },
+  "button": {
+    "load": "Load",
+    "delete": "Delete",
+    "login": "Login"
+  },
+  "auth": {
+    "username": "User name",
+    "password": "Password"
+  },
+  "toast": {
+    "success": "Signing in, please wait..",
+    "error": "Username or password entered incorrectly",
+    "delete": "Deleted post",
+    "logout": "You are logged out!"
+  },
+  "profile": {
+    "name": "Name",
+    "password": "Password"
+  }
+}
