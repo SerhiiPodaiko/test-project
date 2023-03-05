@@ -23,12 +23,12 @@ i18n
       backends: [
         HttpBackend,
         resourcesToBackend((lng) =>
-          import(`/public/locales/${lng}/translation.json`),
+          import(`./locales/${lng}/translation.json`),
         ),
       ],
       backendOptions: [
         {
-          loadPath: "/locales/{{lng}}/translation.json",
+          loadPath: "./locales/{{lng}}/translation.json",
         },
       ],
     },
