@@ -18,7 +18,7 @@ i18n
       escapeValue: false,
     },
     backend: {
-      loadPath: "/locales/{{lng}}/translation.json",
+      loadPath: `https://SerhiiPodaiko.github.io/test-project/locales/{{lng}}/translation.json`,
     },
   })
 
