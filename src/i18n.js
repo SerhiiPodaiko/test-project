@@ -22,8 +22,8 @@ i18n
     backend: {
       backends: [
         HttpBackend,
-        resourcesToBackend((lng, ns) =>
-          import(`./public/locales/${lng}/translation.json`),
+        resourcesToBackend((lng) =>
+          import(`/public/locales/${lng}/translation.json`),
         ),
       ],
       backendOptions: [
