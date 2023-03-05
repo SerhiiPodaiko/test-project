@@ -18,7 +18,7 @@ i18n
       escapeValue: false,
     },
     backend: {
-      loadPath: "build/locales/{{lng}}/translation.json",
+      loadPath: "locales/{{lng}}/translation.json",
     },
   })
 
