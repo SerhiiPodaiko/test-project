@@ -18,8 +18,11 @@ i18n
       escapeValue: false,
     },
     backend: {
-      loadPath: "/locales/{{lng}}/translation.json",
-      addPath: "locales/add/{{lng}}/translation.json",
+      loadPath: (lng) => {
+        return lng === "en"
+          ? "https://locales2.s3.eu-central-1.amazonaws.com/translation.json"
+          : "https://locales2.s3.eu-central-1.amazonaws.com/translation-uk.json"
+      },
     },
   })
 
