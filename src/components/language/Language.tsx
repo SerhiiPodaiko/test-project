@@ -33,7 +33,7 @@ const Language = () => {
       <Box component="option" defaultValue="en">
         EN
       </Box>
-      <Box component="option" defaultValue="UK">
+      <Box component="option" defaultValue="uk">
         UK
       </Box>
     </Box>
