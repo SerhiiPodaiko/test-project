@@ -2,11 +2,8 @@ import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit"
 import { api } from "../../../utils/axios"
 import { NewsType } from "./newsType"
 
-export const fetchGetAllNews = createAsyncThunk<
-  NewsType[],
-  number,
-  { rejectValue: string }
->("news/fetchGetAllNews", async function (currentPage, { rejectWithValue }) {
+export const fetchGetAllNews = createAsyncThunk<NewsType[], number, { rejectValue: string }>
+  ("news/fetchGetAllNews", async function (currentPage, { rejectWithValue }) {
   try {
     const response = await api.get(
       `${process.env.REACT_APP_BASE_URL}/posts?_limit=10&_page=${currentPage}`,
@@ -22,11 +19,8 @@ export const fetchGetAllNews = createAsyncThunk<
   }
 })
 
-export const fetchDeleteNews = createAsyncThunk<
-  number,
-  number,
-  { rejectValue: string }
->("news/fetchDeleteNews", async function (id, { rejectWithValue }) {
+export const fetchDeleteNews = createAsyncThunk<number, number, { rejectValue: string }>
+  ("news/fetchDeleteNews", async function (id, { rejectWithValue }) {
   const response = await api.delete(
     `${process.env.REACT_APP_BASE_URL}/posts/${id}`,
   )
