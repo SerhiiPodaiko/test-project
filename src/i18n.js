@@ -1,5 +1,7 @@
 import i18n from "i18next"
 import Backend from "i18next-http-backend"
+import HttpBackend from "i18next-http-backend"
+import resourcesToBackend from "i18next-resources-to-backend"
 import LanguageDetector from "i18next-browser-languagedetector"
 import { initReactI18next } from "react-i18next"
 
@@ -18,7 +20,17 @@ i18n
       escapeValue: false,
     },
     backend: {
-      loadPath: "./locales/{{lng}}/translation.json",
+      backends: [
+        HttpBackend,
+        resourcesToBackend((lng, ns) =>
+          import(`./locales/${lng}/translation.json`),
+        ),
+      ],
+      backendOptions: [
+        {
+          loadPath: "/locales/{{lng}}/translation.json",
+        },
+      ],
     },
   })
 
